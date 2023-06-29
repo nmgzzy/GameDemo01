@@ -1,0 +1,23 @@
+[gd_scene load_steps=2 format=3 uid="uid://c2cnictvap3g"]
+
+[ext_resource type="Script" path="res://script/main.gd" id="1_hosfk"]
+
+[node name="Main" type="Node2D"]
+script = ExtResource("1_hosfk")
+
+[node name="Play" type="Button" parent="."]
+offset_left = 435.0
+offset_top = 125.0
+offset_right = 699.0
+offset_bottom = 248.0
+text = "Play"
+
+[node name="Quit" type="Button" parent="."]
+offset_left = 436.0
+offset_top = 314.0
+offset_right = 700.0
+offset_bottom = 437.0
+text = "Quit"
+
+[connection signal="pressed" from="Play" to="." method="_on_play_pressed"]
+[connection signal="pressed" from="Quit" to="." method="_on_quit_pressed"]

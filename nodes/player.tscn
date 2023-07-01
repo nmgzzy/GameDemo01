@@ -15,9 +15,6 @@
 [ext_resource type="Texture2D" uid="uid://hyv2877jc3p5" path="res://assets/Sunny-land-assets-files/PNG/sprites/player/run/player-run-1.png" id="13_6abtp"]
 [ext_resource type="Texture2D" uid="uid://bbpie3t7pb1w7" path="res://assets/Sunny-land-assets-files/PNG/sprites/player/run/player-run-6.png" id="14_sk6qu"]
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_vu0dk"]
-height = 24.0
-
 [sub_resource type="AtlasTexture" id="AtlasTexture_fy75w"]
 atlas = ExtResource("2_rci61")
 region = Rect2(0, 0, 33, 32)
@@ -90,6 +87,9 @@ animations = [{
 "name": &"run",
 "speed": 5.0
 }]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_vu0dk"]
+height = 24.0
 
 [sub_resource type="Animation" id="Animation_m0dhu"]
 length = 0.001
@@ -230,17 +230,19 @@ _data = {
 [node name="player" type="CharacterBody2D"]
 script = ExtResource("1_sm10f")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(-1, 4)
-shape = SubResource("CapsuleShape2D_vu0dk")
-
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_3ubj7")
-animation = &"idle"
+animation = &"run"
 frame = 1
 metadata/_edit_lock_ = true
 
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
+position = Vector2(-1, 4)
+shape = SubResource("CapsuleShape2D_vu0dk")
+
 [node name="Camera2D" type="Camera2D" parent="."]
+visible = false
 zoom = Vector2(1.6, 1.6)
 limit_left = 0
 limit_top = 0

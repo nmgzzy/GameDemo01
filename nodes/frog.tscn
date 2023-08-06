@@ -5,6 +5,18 @@
 [ext_resource type="Texture2D" uid="uid://da5awj2gickkr" path="res://assets/Sunny-land-assets-files/PNG/spritesheets/frog-idle.png" id="2_2hmjd"]
 [ext_resource type="Texture2D" uid="uid://cexscphcth672" path="res://assets/Sunny-land-assets-files/PNG/spritesheets/frog-jump.png" id="3_n66ij"]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_lp4dq"]
+size = Vector2(20, 16)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_nkyjc"]
+radius = 171.012
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_y5k0i"]
+size = Vector2(18, 18)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_doutl"]
+size = Vector2(22, 14)
+
 [sub_resource type="AtlasTexture" id="AtlasTexture_lu6o7"]
 atlas = ExtResource("1_jmv5y")
 region = Rect2(0, 0, 40, 41)
@@ -126,25 +138,8 @@ animations = [{
 "speed": 5.0
 }]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_lp4dq"]
-size = Vector2(20, 16)
-
-[sub_resource type="CircleShape2D" id="CircleShape2D_nkyjc"]
-radius = 171.012
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_y5k0i"]
-size = Vector2(18, 18)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_doutl"]
-size = Vector2(22, 14)
-
 [node name="Frog" type="CharacterBody2D"]
 script = ExtResource("1_oadk2")
-
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-sprite_frames = SubResource("SpriteFrames_vhsln")
-animation = &"idle"
-metadata/_edit_lock_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, 2)
@@ -169,6 +164,11 @@ shape = SubResource("RectangleShape2D_y5k0i")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="FrogDamage"]
 position = Vector2(0, 3)
 shape = SubResource("RectangleShape2D_doutl")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_vhsln")
+animation = &"idle"
+metadata/_edit_lock_ = true
 
 [connection signal="body_entered" from="PlayerDetection" to="." method="_on_player_detection_body_entered"]
 [connection signal="body_exited" from="PlayerDetection" to="." method="_on_player_detection_body_exited"]
